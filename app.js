@@ -9,6 +9,8 @@ app.use(cors())
 var path = require('path');
 app.use(express.static(path.join(__dirname + 'public')));
 
+// app.get('/public/index')
+
 app.post('/electricity', function(req, res) {
     console.log(req.body);
     var electricDay = req.body.electricityDay;
@@ -23,4 +25,7 @@ app.post('/electricity', function(req, res) {
     res.json(costDay || costLow);
 });
 
-app.listen(8081, function () {});
+const port = 8081;
+app.listen(port, () => {
+    console.log('Server listening on port: ' + port);
+  });

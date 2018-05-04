@@ -81,7 +81,7 @@
 			
 			<hr>
 						
-			<div class="list-group">
+			<div class="list-group" id="results">
 					<button type="button" class="list-group-item">
 						<p>Total amount due Day: </p><div id="electricityDayRes" class="electricityDayRes"></div>
 					</button>
@@ -93,6 +93,10 @@
 
     <script>
 
+        $("#results").hide();
+        $("#results").hide();
+
+
         $("#userInput").submit(function(event){
             event.preventDefault();
 
@@ -103,6 +107,8 @@
                 console.log(data);
                 $("div#electricityDayRes").empty();
                 $("div#electricityDayRes").append("£"+data);
+
+                $("#results").show();
             })
 
             var payload2 = {electricityLow: $('#electricityLow').val()};
@@ -112,12 +118,11 @@
                 console.log(data2);
                 $("div#electricityLowRes").empty();
                 $("div#electricityLowRes").append("£"+data2);
+
+                $("#results").show();
             })
         });
 
     </script>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   </body>
 </html>

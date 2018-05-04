@@ -9,8 +9,6 @@ app.use(cors())
 var path = require('path');
 app.use(express.static(path.join(__dirname + 'public')));
 
-// app.get('/public/index')
-
 app.post('/electricity', function(req, res) {
     console.log(req.body);
     var electricDay = req.body.electricityDay;
